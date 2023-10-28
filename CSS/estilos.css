@@ -60,7 +60,23 @@ img {
 
 /*? Header  */
 .header{
+    height: 50rem;
     background-color: var(--backgroundPrincipal);
+    border-radius: 0 0 100% 100%;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .header{
+        height: auto;
+        border-radius: 0%;
+    }
+}
+
+@media (min-width: 768px) {
+    .header::before{
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -84,6 +100,12 @@ img {
 }
 
 @media (min-width: 768px) {
+    .header__img{
+        width: 20%;
+    }
+}
+
+@media (min-width: 990px) {
     .header__img{
         width: 15%;
     }
@@ -112,5 +134,40 @@ img {
 }
 
 .header__link{
+    background: var(--backgroundPrincipal);
     color: var(--blanco);
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
+
+.header__link:hover{
+    color: var(--negro);
+}
+
+.header__link::after{
+    content: "";
+    background: var(--backgrundSecundario); /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 1rem 2rem;
+    display: block;
+    border-radius: 50%;
+    left: -50%;
+    right: -50%;
+    top: -150%;
+    bottom: -150%;
+    transform: scale(0, 0);
+    transition: all 0.4s ease;
+}
+
+.header__link:hover::after{
+    transition: all 0.6s ease-out;
+    transform: scale(1, 1);
+}
+
