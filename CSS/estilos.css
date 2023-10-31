@@ -25,7 +25,7 @@ body{
     font-size: 1.6rem;
     line-height: 1.5;
     font-family: var(--FuenteSecundaria);
-    color: var(--blanco);
+    color: var(--negro);
 }
 
 /*? Generales  */
@@ -60,6 +60,12 @@ img {
 
 [class$="__resaltar"]{
     color: var(--backgrundSecundario);
+}
+
+[class$="__titulo"]{
+    font-size: 4.5rem;
+    color: var(--backgrundSecundario);
+    text-align: center;
 }
 
 /*? Header  */
@@ -179,6 +185,7 @@ img {
 .hero{
     background-color: var(--gris);
     position: relative;
+    z-index: -1;
 }
 
 .hero::before{
@@ -189,8 +196,68 @@ img {
     position: absolute;
     top: -10rem;
     top: -40rem;
-    z-index: -2;
+    z-index: -3;
 }
+
+.hero::after{
+    content: "";
+    background-color: var(--backgrundSecundario);
+    width: 100%;
+    height: 25rem;
+    position: absolute;
+    z-index: -1;
+    top: 55rem;
+    border-radius: 30% 70% 67% 33% / 30% 43% 57% 70% ;
+}
+
+@media (min-width: 390px) {
+    .hero::after{
+        width: 100%;
+        top: 50rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero::after{
+        width: 50%;
+        top: 10rem;
+        left: 35rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .hero::after{
+        width: 50%;
+        top: 10rem;
+        left: 45rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .hero::after{
+        left: 60rem;
+        width: 50%;
+        height: 80%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero::after{
+        left: 70rem;
+        width: 50%;
+        height: 80%;
+    }
+}
+
+@media (min-width: 1820px) {
+    .hero::after{
+        left: 90rem;
+        width: 30%;
+        height: 80%;
+        margin-left: 5rem;
+    }
+}
+
 
 .hero__grid{
     display: grid;
@@ -206,7 +273,7 @@ img {
 }
 
 .hero__img{
-    height: 80%;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -220,5 +287,77 @@ img {
 
 .hero__imagen{
     height: 100%;
-    width: 80%;
+    width: 100%;
+}
+
+.hero__info{
+    margin-top: 3rem;
+    display: grid;
+    place-content: center;
+}
+
+
+@media (min-width: 768px) {
+    .hero__info{
+        margin-top: 2rem;
+    }
+}
+
+.hero__titulo{
+    color: var(--backgroundTerceario);
+    font-size: 4.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero__titulo{
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
+@media (min-width: 990px) {
+    .hero__titulo{
+        font-size: 5rem;
+        text-align: left;
+    }
+}
+
+.hero__descripcion{
+    font-size: 2rem;
+    padding: 0 2rem;
+    color: var(--blanco);
+}
+
+@media (min-width: 990px) {
+    .hero__descripcion{
+        padding: 0;
+    }
+}
+
+/*? Prueba  */
+.prueba{
+    position: relative;
+}
+
+.prueba__grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 768px) {
+    .prueba__grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.prueba__card{
+    border-radius: 25px;
+    background-color: #d6d6d6;
+    border: 1px solid #d5d5d5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
